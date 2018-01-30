@@ -165,8 +165,13 @@ echo shortcode::parse($page->text());
 The following options can be set in your `/site/config/config.php` file:
 
 ```php
+c::set('plugin.shortcode.create', array());
 c::set('plugin.shortcode.field.method', true);
 ```
+
+### shortcode.create
+
+With this option you add your shortcodes. You can read more about that in [Create shortcodes](#1-create-shortcodes).
 
 ### field.method
 

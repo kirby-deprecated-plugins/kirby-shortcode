@@ -8,17 +8,19 @@ class shortcode {
         $data = c::get('plugin.shortcode.create');
         $text = (string)$field;
 
-        foreach($data as $item) {
-            $key = $item['name'];
-            $callback = $item['text'];
+        if($data) {
+            foreach($data as $item) {
+                $key = $item['name'];
+                $callback = $item['text'];
 
-            if(is_callable($callback)) {
-                $facade->addHandler($key, function(ShortcodeInterface $shortcode) use ($callback, $field) {
-                    return call_user_func_array($callback, [$shortcode, $field]);
-                });
+                if(is_callable($callback)) {
+                    $facade->addHandler($key, function(ShortcodeInterface $shortcode) use ($callback, $field) {
+                        return call_user_func_array($callback, [$shortcode, $field]);
+                    });
+                }
             }
+            return kirbytext($facade->process($text));
         }
-
-        return kirbytext($facade->process($text));
+        return kirbytext($text);
     }
 }
