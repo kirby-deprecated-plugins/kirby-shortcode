@@ -48,7 +48,7 @@ Some more text.
 - [2. Shortcodes in content](#2-shortcodes-in-content)
 - [3. Templates and snippets](#3-templates-and-snippets)
 - [Options](#options)
-- [Changelog](#changelog)
+- [Changelog](docs/changelog.md)
 - [Requirements](#requirements)
 - [Disclaimer](#disclaimer)
 - [License](#license)
