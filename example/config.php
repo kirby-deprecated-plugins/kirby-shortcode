@@ -1,4 +1,5 @@
 <?php
+// config.php - See docs or more info
 c::set('plugin.shortcode.create', [
     [
         'name' => 'hello',
