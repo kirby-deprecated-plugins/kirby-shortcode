@@ -1,10 +1,12 @@
 # Kirby Shortcode
 
-![Version](https://img.shields.io/badge/version-0.1-green.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Kirby Version](https://img.shields.io/badge/Kirby-2.5%2B-red.svg)
+![Version](https://img.shields.io/badge/version-0.1-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) [![Donate](https://img.shields.io/badge/give-donation-yellow.svg)](https://www.paypal.me/DevoneraAB)
 
 *Version 0.1*
 
-A powerful alternative to [Kirbytags](https://getkirby.com/docs/developer-guide/kirbytext/tags), but it's more similar to [BBCode](https://sv.wikipedia.org/wiki/BBCode) and [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
+Kirby Shortcode is a powerful alternative to [Kirbytags](https://getkirby.com/docs/developer-guide/kirbytext/tags), but it's more similar to [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
+
+All this is possible because of [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).
 
 **Example**
 
@@ -14,9 +16,10 @@ A powerful alternative to [Kirbytags](https://getkirby.com/docs/developer-guide/
 Some text.
 
 [greetings firstname="Peter" lastname="Parker"]
-    [hello] That is a tag inside a tag.
+    [hello] This is a tag inside a tag.
     Kirby *markdown* can be used inside a tag.
     Html can be <strong>used as well</strong>!
+    Even Kirbytags like (email: hello@example.com) works.
 [/greetings]
 
 Some more text.
@@ -28,17 +31,11 @@ Some more text.
 
 ## 1. Create shortcodes
 
-You can create your shortcodes in your `config.php`.
+The most simple ways to create shortcodes is in your `config.php`.
 
 ### Example
 
 Below we have 3 shortcodes.
-
-- All of them have a `name` and a `text`.
-- The shortcode will only work if you register it with a name that matches your shortcode.
-- The `text` function should return the output text of the shortcode.
-- To use parameters you need to include the `$shortcode` variable.
-- To use `$field` and `$page`, you also need to include the `$field` variable.
 
 ```php
 c::set('plugin.shortcode.create', [
@@ -72,6 +69,12 @@ c::set('plugin.shortcode.create', [
     ]
 ]);
 ```
+
+- All of them have a `name` and a `text`.
+- The shortcode will only work if you register it with a name that matches your shortcode.
+- The `text` function should return the output text of the shortcode.
+- To use parameters you need to include the `$shortcode` variable.
+- To use `$field` and `$page`, you also need to include the `$field` variable.
 
 ### getParameter and getContent
 
@@ -153,36 +156,11 @@ This plugin is provided "as is" with no guarantee. Use it at your own risk and a
 
 It is discouraged to use this plugin in any project that promotes racism, sexism, homophobia, animal abuse, violence or any other form of hate speech.
 
+## Donate
+
+If you want to make a donation, you can do that by sending any amount https://www.paypal.me/DevoneraAB
+
 ## Credits
 
 - [Jens Törnell](https://github.com/jenstornell)
 - [Tomasz Kowalczyk](https://github.com/thunderer)
-
-c::set('plugin.shortcode.field.method', true);
-
-shortcode::parse($text); eller $field
-
-$firstname = $shortcode->getParameter('firstname');
-    $lastname = $shortcode->getParameter('lastname');
-
-    $content = $shortcode->getContent();
-
-    <?php
-// Basic
-shortcode::set('hello', function() {
-    return 'Hello there!';
-});
-
-// Multiple parameters and content
-shortcode::set('greetings', function($shortcode) {
-    $firstname = $shortcode->getParameter('firstname');
-    $lastname = $shortcode->getParameter('lastname');
-
-    $content = $shortcode->getContent();
-    
-    return '<p>Greetings ' . $firstname . ' ' . $lastname . '!<br>' . $content . '</p>';
-});
-
-shortcpde::parse
-
-$field
