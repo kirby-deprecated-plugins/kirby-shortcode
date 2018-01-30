@@ -45,8 +45,8 @@ Some more text.
 ## Table of contents
 
 - [1. Create shortcodes](#1-create-shortcodes)
-- [2. Shortcodes in content text](#1-create-shortcodes)
-- [3. Templates and snippets](#1-create-shortcodes)
+- [2. Shortcodes in content](#2-shortcodes-in-content)
+- [3. Templates and snippets](#3-templates-and-snippets)
 - [Options](#options)
 - [Changelog](#changelog)
 - [Requirements](#requirements)
@@ -106,7 +106,7 @@ c::set('plugin.shortcode.create', [
 - The `$shortcode->getParameter('my-param')` method allow returns a parameter from the shortcode.
 - The `$shortcode->getContent()` method returns the content inside the shortcode, between the start and ending tags.
 
-## 2. Add shortcodes to your content
+## 2. Shortcodes in content
 
 The examples below are based on the example above.
 
@@ -141,7 +141,7 @@ This example will use the second argument `$field`. Then `$field->key` can be us
 [field-data]
 ```
 
-## 3. Add support to templates and snippets
+## 3. Templates and snippets
 
 By default, [kt](https://getkirby.com/docs/cheatsheet/field-methods/kt) and [kirbytext](https://getkirby.com/docs/cheatsheet/field-methods/kirbytext) are overwritten by this plugin to support shortcodes.
 
