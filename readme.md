@@ -42,6 +42,19 @@ Some more text.
 
 **[Installation instructions](docs/install.md)**
 
+## Table of contents
+
+- [1. Create shortcodes](#1-create-shortcodes)
+- [2. Shortcodes in content text](#1-create-shortcodes)
+- [3. Templates and snippets](#1-create-shortcodes)
+- [Options](#options)
+- [Changelog](#changelog)
+- [Requirements](#requirements)
+- [Disclaimer](#disclaimer)
+- [License](#license)
+- [Donate](#donate)
+- [Credits](#credits)
+
 ## 1. Create shortcodes
 
 The most simple ways to create shortcodes is in your `config.php`.
@@ -107,9 +120,9 @@ Add the code below to your content. It will output `Hello world!`.
 
 ### Example 2 - Greetings
 
-This example includes parameters and content. See [getParameter and getContent](#getparameter-and-getcontent) for more info.
+This example includes parameters and content. See [getParameter and getContent](#getparameter-and-getcontent).
 
-As you can see in the example, you can use nested shortcodes, markdown and even kirbytags in the shortcode content.
+As you can see in the example, you can use nested shortcodes, markdown and even kirbytags in your shortcode content.
 
 ```text
 [greetings firstname="Peter" lastname="Parker"]
@@ -130,7 +143,7 @@ This example will use the second argument `$field`. Then `$field->key` can be us
 
 ## 3. Add support to templates and snippets
 
-By default, `kt` and `kirbytext` are overwritten by this plugin to support shortcodes.
+By default, [kt](https://getkirby.com/docs/cheatsheet/field-methods/kt) and [kirbytext](https://getkirby.com/docs/cheatsheet/field-methods/kirbytext) are overwritten by this plugin to support shortcodes.
 
 **Out of the box you can do one of the following:**
 
@@ -139,7 +152,9 @@ echo $page->text()->kt();
 echo $page->text()->kirbytext();
 ```
 
-If you prefer keep `kt` and `kirbytext` untouched, you can disable the field method and then do this instead:
+If you prefer to keep `kt` and `kirbytext` untouched, you can disable the [field method](#fieldmethod).
+
+**Instead you can use this method:**
 
 ```php
 echo shortcode::parse($page->text());
