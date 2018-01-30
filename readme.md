@@ -6,9 +6,9 @@
 
 Kirby Shortcode is a powerful alternative to [Kirbytags](https://getkirby.com/docs/developer-guide/kirbytext/tags), but it's more similar to [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
 
-All this is possible because of [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).
+*This plugin is based on the great [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).*
 
-**Example**
+**Example content text**
 
 ```text
 [hello]
@@ -70,24 +70,23 @@ c::set('plugin.shortcode.create', [
 ]);
 ```
 
-- All of them have a `name` and a `text`.
-- The shortcode will only work if you register it with a name that matches your shortcode.
-- The `text` function should return the output text of the shortcode.
+- The shortcode will only work the registered `name` matches your shortcode inside your content text.
+- The `text` function returns the output text of the shortcode.
 - To use parameters you need to include the `$shortcode` variable.
-- To use `$field` and `$page`, you also need to include the `$field` variable.
+- To use `$field` and the page object, you also need to include the `$field` variable.
 
 ### getParameter and getContent
 
-- The `$shortcode->getParameter('my-param')` will get a parameter from the shortcode.
-- The `$shortcode->getContent()` will get the content inside the shortcode, between the start and ending tags.
+- The `$shortcode->getParameter('my-param')` method allow you to get a parameter from the shortcode.
+- The `$shortcode->getContent()` method returns the content inside the shortcode, between the start and ending tags.
 
 ## 2. Add shortcodes to your content
 
-The examples below will be based on the example above.
+The examples below are based on the example above.
 
 ### Example 1 - Hello
 
-Add the code below to your content and it will output `Hello world!`.
+Add the code below to your content. It will output `Hello world!`.
 
 ```text
 [hello]
@@ -96,6 +95,8 @@ Add the code below to your content and it will output `Hello world!`.
 ### Example 2 - Greetings
 
 This example includes parameters and content. See [getParameter and getContent](#getParameter and getContent) for more info.
+
+As you can see in the example, you can use nested shortcodes, markdown and even Kirbytags in the shortcode content.
 
 ```text
 [greetings firstname="Peter" lastname="Parker"]
@@ -107,7 +108,7 @@ This example includes parameters and content. See [getParameter and getContent](
 
 ### Example 3 - Field key
 
-This example will use the second argument `$field` to get the `$field->key` and the page title with `$field->page->title()`.
+This example will use the second argument `$field`. Then `$field->key` can be used as well as `$field->page->title()`. They output the field key and the page title.
 
 ```text
 [field-data]
@@ -115,14 +116,16 @@ This example will use the second argument `$field` to get the `$field->key` and 
 
 ## 3. Add support to templates and snippets
 
-By default, `kt` and `kirbytext` is replaced to also include shortcodes. Out of the box you can just to this:
+By default, `kt` and `kirbytext` are overwritten by this plugin to support shortcodes.
+
+**Out of the box you can do one of the following:**
 
 ```php
 echo $page->text()->kt();
 echo $page->text()->kirbytext();
 ```
 
-If you prefer to separate them, you can disable the field method and then do this instead:
+If you prefer keep `kt` and `kirbytext` untouched, you can disable the field method and then do this instead:
 
 ```php
 echo shortcode::parse($page->text());
@@ -138,7 +141,7 @@ c::set('plugin.shortcode.field.method', true);
 
 ### field.method
 
-By default this plugin will override `kt` or `kirbytext` [field methods](https://getkirby.com/docs/developer-guide/objects/fields). They will work just like before but also parse shortcodes created for this plugin.
+By default this plugin will override `kt` or `kirbytext` [field methods](https://getkirby.com/docs/developer-guide/objects/fields). These field methods will work just like before, but also parse shortcodes.
 
 To disable it, set it to `false`. You can then still use `shortcode::parse($text)` to parse the text that has shortcodes.
 
