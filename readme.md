@@ -15,7 +15,7 @@ Kirby Shortcode is a powerful alternative to [kirbytags](https://getkirby.com/do
 | Access to `$field` | Yes       | Yes
 | Access to `$page`  | Yes       | Yes
 
-With the shortcode plugin installed kirbytags, markdown and HTML still works like before, even inside shortcodes.
+Kirbytags, markdown and HTML still works like before, even inside shortcodes.
 
 **Example content text**
 
