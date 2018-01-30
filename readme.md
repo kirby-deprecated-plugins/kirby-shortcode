@@ -8,6 +8,15 @@ Kirby Shortcode is a powerful alternative to [Kirbytags](https://getkirby.com/do
 
 *This plugin is based on the great [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).*
 
+## Features
+
+- A syntax, just like [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
+- Self closing shortcodes as well as closable shortcodes.
+- Nested shortcodes (shortcodes inside shortcodes).
+- Kirbytags, markdown and HTML still works like before, even inside shortcodes.
+- Any character or HTML can be added to your shortcodes.
+- Data from your `$field` or `$page` object can be used in your shortcodes.
+
 **Example content text**
 
 ```text
