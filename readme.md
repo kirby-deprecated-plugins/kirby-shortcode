@@ -6,10 +6,6 @@ Kirby Shortcode is a powerful alternative to [kirbytags](https://getkirby.com/do
 
 *This plugin is based on the great [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).*
 
-## Features
-
-### Kirbytags vs Shortcode
-
 |                    | Kirbytags | Shortcode
 | ------------------ | --------- | ---------
 | Self closing       | Yes       | Yes
