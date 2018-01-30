@@ -169,9 +169,9 @@ c::set('plugin.shortcode.create', array());
 c::set('plugin.shortcode.field.method', true);
 ```
 
-### shortcode.create
+### create
 
-With this option you add your shortcodes. You can read more about that in [Create shortcodes](#1-create-shortcodes).
+With this option you add your shortcodes. You can read more about that in the chapter [Create shortcodes](#1-create-shortcodes).
 
 ### field.method
 
