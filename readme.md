@@ -2,9 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.1-blue.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) [![Donate](https://img.shields.io/badge/give-donation-yellow.svg)](https://www.paypal.me/DevoneraAB)
 
-*Version 0.1*
-
-Kirby Shortcode is a powerful alternative to [Kirbytags](https://getkirby.com/docs/developer-guide/kirbytext/tags), but it's more similar to [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
+Kirby Shortcode is a powerful alternative to [kirbytags](https://getkirby.com/docs/developer-guide/kirbytext/tags), but it's more similar to [WordPress Shortcode API](https://codex.wordpress.org/Shortcode_API).
 
 *This plugin is based on the great [thunderer/Shortcode](https://github.com/thunderer/Shortcode) library by [Tomasz Kowalczyk](https://github.com/thunderer).*
 
@@ -12,16 +10,16 @@ Kirby Shortcode is a powerful alternative to [Kirbytags](https://getkirby.com/do
 
 ### Kirbytags vs Shortcode
 
-|                  | Kirbytags | Shortcode
-| ---------------- | --------- | ---------
-| Self closing     | Yes       | Yes
-| Closing          | -         | Yes
-| Nesting          | -         | Yes
-| Any HTML         | -         | Yes
-| Access to $field | Yes       | Yes
-| Access to $page  | Yes       | Yes
+|                    | Kirbytags | Shortcode
+| ------------------ | --------- | ---------
+| Self closing       | Yes       | Yes
+| Closing            | -         | Yes
+| Nesting            | -         | Yes
+| Any HTML           | -         | Yes
+| Access to `$field` | Yes       | Yes
+| Access to `$page`  | Yes       | Yes
 
-With the shortcode plugin installed; Kirbytags, markdown and HTML still works like before, even inside shortcodes.
+With the shortcode plugin installed kirbytags, markdown and HTML still works like before, even inside shortcodes.
 
 **Example content text**
 
@@ -34,7 +32,7 @@ Some text.
     [hello] This is a tag inside a tag.
     Kirby *markdown* can be used inside a tag.
     Html can be <strong>used as well</strong>!
-    Even Kirbytags like (email: hello@example.com) works.
+    Even kirbytags like (email: hello@example.com) works.
 [/greetings]
 
 Some more text.
@@ -50,7 +48,7 @@ The most simple ways to create shortcodes is in your `config.php`.
 
 ### Example
 
-Below we have 3 shortcodes.
+Below we have shortcodes.
 
 ```php
 c::set('plugin.shortcode.create', [
@@ -85,14 +83,14 @@ c::set('plugin.shortcode.create', [
 ]);
 ```
 
-- The shortcode will only work the registered `name` matches your shortcode inside your content text.
+- The shortcode will only work when the registered `name` matches your shortcode name inside your content text.
 - The `text` function returns the output text of the shortcode.
 - To use parameters you need to include the `$shortcode` variable.
-- To use `$field` and the page object, you also need to include the `$field` variable.
+- To use the `$field` and the page object, you also need to include the `$field` variable.
 
 ### getParameter and getContent
 
-- The `$shortcode->getParameter('my-param')` method allow you to get a parameter from the shortcode.
+- The `$shortcode->getParameter('my-param')` method allow returns a parameter from the shortcode.
 - The `$shortcode->getContent()` method returns the content inside the shortcode, between the start and ending tags.
 
 ## 2. Add shortcodes to your content
@@ -109,15 +107,16 @@ Add the code below to your content. It will output `Hello world!`.
 
 ### Example 2 - Greetings
 
-This example includes parameters and content. See [getParameter and getContent](#getParameter and getContent) for more info.
+This example includes parameters and content. See [getParameter and getContent](#getparameter-and-getcontent) for more info.
 
-As you can see in the example, you can use nested shortcodes, markdown and even Kirbytags in the shortcode content.
+As you can see in the example, you can use nested shortcodes, markdown and even kirbytags in the shortcode content.
 
 ```text
 [greetings firstname="Peter" lastname="Parker"]
-    [hello] That is a tag inside a tag.
+    [hello] This is a tag inside a tag.
     Kirby *markdown* can be used inside a tag.
     Html can be <strong>used as well</strong>!
+    Even kirbytags like (email: hello@example.com) works.
 [/greetings]
 ```
 
